@@ -71,7 +71,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        lang: [all, en, ar, ca, de, es, fr, id, it, ja, ko, pt, ru, th, tr, vi, zh, bg, hi, pl]
+        lang: [zh]
     steps:
       - name: Checkout master branch
         uses: actions/checkout@v2
