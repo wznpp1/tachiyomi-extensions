@@ -51,7 +51,7 @@ class Jinmantiantang : ConfigurableSource, ParsedHttpSource() {
         Injekt.get<Application>().getSharedPreferences("source_$id", 0x0000)
     }
 
-    override val baseUrl: String = "https://" +
+    override val baseUrl: String = "http://" +
         SITE_ENTRIES_ARRAY[preferences.getString(USE_MIRROR_URL_PREF, "0")!!.toInt()]
     private val baseHttpUrl: HttpUrl = baseUrl.toHttpUrlOrNull()!!
 
